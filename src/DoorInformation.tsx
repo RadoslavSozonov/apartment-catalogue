@@ -59,7 +59,7 @@ const DoorInformation = (doorInformation: DoorInformationInterface) => {
     return <>
         <Grid item key={doorInformation.doorIndex} style={{marginBottom: '10px'}}>
             <div style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
-            <Typography variant="body2">Room {doorInformation.doorIndex + 1}:</Typography>
+            <Typography variant="body2">Door {doorInformation.doorIndex + 1}:</Typography>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
                 <li>Width: {doorInformation.door.width}m</li>
                 <li>Height: {doorInformation.door.height}m</li>
