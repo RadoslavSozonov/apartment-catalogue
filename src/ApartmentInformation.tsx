@@ -1,9 +1,9 @@
 import { useState, FunctionComponent, SetStateAction, Dispatch } from 'react';
-import { Typography, Grid, Paper, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
+import { Typography, Grid, Paper, Button } from '@mui/material';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import RoomInformation from './RoomInformation';
 // import firebase from 'firebase/compat';
-import { ref, push, update } from 'firebase/database';
+import { ref, update } from 'firebase/database';
 import firebase from './firebase';
 import RoomInterface from './interfaces/RoomInterface';
 import ApartmentInterface from './interfaces/ApartmentInterface';
@@ -38,28 +38,28 @@ const ApartmentInformation: FunctionComponent<ApartmentInformationInterface> = (
     const updateRoom = (room: RoomInterface, field: keyof RoomInterface, value: string|WindowInterface[]): RoomInterface => {
       let updatedRoom: RoomInterface = { ...room, [field]: value };
       
-      if(field == 'ceilArea'){
+      if(field === 'ceilArea'){
         setManuallySetFloorArea(true);
         setManuallySetCeilArea(true);
       }
-      if(field == 'floorArea'){
+      if(field === 'floorArea'){
         setManuallySetFloorArea(true);
         setManuallySetCeilArea(true);
       }
-      if(field == 'combinedWallsArea'){
+      if(field === 'combinedWallsArea'){
         setManuallySetWallsArea(true);
       }
-      if((updatedRoom.floorArea != 0 && !manuallySetCeilArea) || field == 'floorArea'){
+      if((updatedRoom.floorArea !== 0 && !manuallySetCeilArea) || field === 'floorArea'){
         updatedRoom = { ...updatedRoom, 'ceilArea': updatedRoom.floorArea }
       }
 
-      if(updatedRoom.length != 0 && updatedRoom.width != 0 && !manuallySetFloorArea){
+      if(updatedRoom.length !== 0 && updatedRoom.width !== 0 && !manuallySetFloorArea){
           updatedRoom = { ...updatedRoom, 'floorArea': calculateFloorOrCeilArea(updatedRoom) }
       }
-      if(updatedRoom.length != 0 && updatedRoom.width != 0 && !manuallySetCeilArea){
+      if(updatedRoom.length !== 0 && updatedRoom.width !== 0 && !manuallySetCeilArea){
         updatedRoom = { ...updatedRoom, 'ceilArea': calculateFloorOrCeilArea(updatedRoom) }
       }
-      if(updatedRoom.length != 0 && updatedRoom.width != 0 && updatedRoom.height != 0 && !manuallySetWallsArea){
+      if(updatedRoom.length !== 0 && updatedRoom.width !== 0 && updatedRoom.height !== 0 && !manuallySetWallsArea){
         updatedRoom = { ...updatedRoom, 'combinedWallsArea': calculateCombinedWallsArea(updatedRoom) }
       }
       return updatedRoom;

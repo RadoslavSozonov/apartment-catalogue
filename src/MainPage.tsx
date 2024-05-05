@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, Typography, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem } from '@mui/material';
+import { TextField, Button, Grid, Typography } from '@mui/material';
 import firebase from './firebase';
 import { Link } from 'react-router-dom';
 import { ref, push } from 'firebase/database'
@@ -18,7 +18,7 @@ interface ApartmentInterface {
 }
 
 const MainPage: React.FC = () => {
-  const [apartments, setApartments] = useState<ApartmentInterface[]>([]);
+  const [, setApartments] = useState<ApartmentInterface[]>([]);
   const [newAddress, setNewAddress] = useState('');
   const [newRooms, setNewRooms] = useState<RoomInterface[]>([]);
   const [newDoors, setNewDoors] = useState<DoorInterface[]>([]);
@@ -29,7 +29,7 @@ const MainPage: React.FC = () => {
   const updateRoom = (room: RoomInterface, field: keyof RoomInterface, value: string|WindowInterface[], index: number): RoomInterface => {
     let updatedRoom: RoomInterface = { ...room, [field]: value };
     
-    if(field == 'ceilArea'){
+    if(field === 'ceilArea'){
       let newArray = [...manuallySetFloorArea];
       newArray[index] = true
       setManuallySetFloorArea(newArray);
@@ -37,7 +37,7 @@ const MainPage: React.FC = () => {
       newArray[index] = true
       setManuallySetCeilArea(newArray);
     }
-    if(field == 'floorArea'){
+    if(field === 'floorArea'){
       let newArray = [...manuallySetFloorArea];
       newArray[index] = true
       setManuallySetFloorArea(newArray);
@@ -45,22 +45,22 @@ const MainPage: React.FC = () => {
       newArray[index] = true
       setManuallySetCeilArea(newArray);
     }
-    if(field == 'combinedWallsArea'){
+    if(field === 'combinedWallsArea'){
       let newArray = [...manuallySetWallsArea];
       newArray[index] = true
       setManuallySetWallsArea(newArray);
     }
-    if((updatedRoom.floorArea != 0 && !manuallySetCeilArea[index]) || field == 'floorArea'){
+    if((updatedRoom.floorArea !== 0 && !manuallySetCeilArea[index]) || field === 'floorArea'){
       updatedRoom = { ...updatedRoom, 'ceilArea': updatedRoom.floorArea }
     }
 
-    if(updatedRoom.length != 0 && updatedRoom.width != 0 && !manuallySetFloorArea[index]){
+    if(updatedRoom.length !== 0 && updatedRoom.width !== 0 && !manuallySetFloorArea[index]){
         updatedRoom = { ...updatedRoom, 'floorArea': calculateFloorOrCeilArea(updatedRoom) }
     }
-    if(updatedRoom.length != 0 && updatedRoom.width != 0 && !manuallySetCeilArea[index]){
+    if(updatedRoom.length !== 0 && updatedRoom.width !== 0 && !manuallySetCeilArea[index]){
       updatedRoom = { ...updatedRoom, 'ceilArea': calculateFloorOrCeilArea(updatedRoom) }
     }
-    if(updatedRoom.length != 0 && updatedRoom.width != 0 && updatedRoom.height != 0 && !manuallySetWallsArea[index]){
+    if(updatedRoom.length !== 0 && updatedRoom.width !== 0 && updatedRoom.height !== 0 && !manuallySetWallsArea[index]){
       updatedRoom = { ...updatedRoom, 'combinedWallsArea': calculateCombinedWallsArea(updatedRoom) }
     }
     return updatedRoom;

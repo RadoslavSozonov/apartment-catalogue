@@ -11,7 +11,7 @@ interface DataModificationTextFieldsRoomInterface {
 const DataModificationTextFieldsRoom = (dataModificationTextFieldsRooms: DataModificationTextFieldsRoomInterface) => {
     return <>
         <TextField
-            label={`Room ${dataModificationTextFieldsRooms.index == -1? "" :dataModificationTextFieldsRooms.index + 1} Name`}
+            label={`Room ${dataModificationTextFieldsRooms.index === -1? "" :dataModificationTextFieldsRooms.index + 1} Name`}
             variant="outlined"
             fullWidth
             value={dataModificationTextFieldsRooms.room.name}
@@ -19,7 +19,7 @@ const DataModificationTextFieldsRoom = (dataModificationTextFieldsRooms: DataMod
             style={{ marginTop: '10px' }}
         />
         <TextField
-            label={`Room ${dataModificationTextFieldsRooms.index == -1? "" :dataModificationTextFieldsRooms.index + 1} Length (m)`}
+            label={`Room ${dataModificationTextFieldsRooms.index === -1? "" :dataModificationTextFieldsRooms.index + 1} Length (m)`}
             variant="outlined"
             fullWidth
             value={dataModificationTextFieldsRooms.room.length}
@@ -27,7 +27,7 @@ const DataModificationTextFieldsRoom = (dataModificationTextFieldsRooms: DataMod
             style={{ marginTop: '10px' }}
         />
         <TextField
-            label={`Room ${dataModificationTextFieldsRooms.index == -1? "" :dataModificationTextFieldsRooms.index + 1} Width (m)`}
+            label={`Room ${dataModificationTextFieldsRooms.index === -1? "" :dataModificationTextFieldsRooms.index + 1} Width (m)`}
             variant="outlined"
             fullWidth
             value={dataModificationTextFieldsRooms.room.width}
@@ -35,7 +35,7 @@ const DataModificationTextFieldsRoom = (dataModificationTextFieldsRooms: DataMod
             style={{ marginTop: '10px' }}
         />
         <TextField
-            label={`Room ${dataModificationTextFieldsRooms.index == -1? "" :dataModificationTextFieldsRooms.index + 1} Height (m)`}
+            label={`Room ${dataModificationTextFieldsRooms.index === -1? "" :dataModificationTextFieldsRooms.index + 1} Height (m)`}
             variant="outlined"
             fullWidth
             value={dataModificationTextFieldsRooms.room.height}
@@ -43,7 +43,7 @@ const DataModificationTextFieldsRoom = (dataModificationTextFieldsRooms: DataMod
             style={{ marginTop: '10px' }}
         />
         <TextField
-            label={`Room ${dataModificationTextFieldsRooms.index == -1? "" :dataModificationTextFieldsRooms.index + 1} Floor Area (m2)`}
+            label={`Room ${dataModificationTextFieldsRooms.index === -1? "" :dataModificationTextFieldsRooms.index + 1} Floor Area (m2)`}
             variant="outlined"
             fullWidth
             value={dataModificationTextFieldsRooms.room.floorArea}
@@ -51,7 +51,7 @@ const DataModificationTextFieldsRoom = (dataModificationTextFieldsRooms: DataMod
             style={{ marginTop: '10px' }}
         />
         <TextField
-            label={`Room ${dataModificationTextFieldsRooms.index == -1? "" :dataModificationTextFieldsRooms.index + 1} Ceil Area (m2)`}
+            label={`Room ${dataModificationTextFieldsRooms.index === -1? "" :dataModificationTextFieldsRooms.index + 1} Ceil Area (m2)`}
             variant="outlined"
             fullWidth
             value={dataModificationTextFieldsRooms.room.ceilArea}
@@ -59,7 +59,7 @@ const DataModificationTextFieldsRoom = (dataModificationTextFieldsRooms: DataMod
             style={{ marginTop: '10px' }}
         />
         <TextField
-            label={`4 Walls ${dataModificationTextFieldsRooms.index == -1? "" :dataModificationTextFieldsRooms.index + 1} Area (m2)`}
+            label={`4 Walls ${dataModificationTextFieldsRooms.index === -1? "" :dataModificationTextFieldsRooms.index + 1} Area (m2)`}
             variant="outlined"
             fullWidth
             value={dataModificationTextFieldsRooms.room.combinedWallsArea}

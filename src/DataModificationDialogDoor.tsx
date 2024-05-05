@@ -1,8 +1,7 @@
-import { Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 import DoorInterface from "./interfaces/DoorInterface";
 import { Dispatch, SetStateAction } from "react";
 import DataModificationTextFieldsDoor from "./DataModificationTextFieldsDoor";
-import WindowInterface from "./interfaces/WindowInterface";
 import RoomInterface from "./interfaces/RoomInterface";
 
 interface DataModificationDialogDoorInterface {
